@@ -919,10 +919,12 @@ def load_model(
             entity_list = []
             # Get notebook id and job id, pack them into lineage_header_info
             if notebook_id := databricks_utils.get_notebook_id():
+                eprint("notebook id:", notebook_id)
                 notebook_entity = Notebook(id=notebook_id)
                 entity_list.append(Entity(notebook=notebook_entity))
 
             if job_id := databricks_utils.get_job_id():
+                eprint("job id:", notebook_id)
                 job_entity = Job(id=job_id)
                 entity_list.append(Entity(job=job_entity))
 
