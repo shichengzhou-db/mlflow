@@ -910,10 +910,11 @@ def load_model(
 
     lineage_header_info = None
     if databricks_utils.is_in_databricks_runtime():
+        from mlflow.utils.logging_utils import eprint
         is_in_notebook = databricks_utils.is_in_databricks_notebook()
-        print("is_in_notebook:", is_in_notebook)
+        eprint("is_in_notebook:", is_in_notebook)
         is_in__job = databricks_utils.is_in_databricks_job()
-        print("is_in_job:", is_in__job)
+        eprint("is_in_job:", is_in__job)
         if is_in_notebook or is_in__job:
             entity_list = []
             # Get notebook id and job id, pack them into lineage_header_info
